@@ -24,7 +24,7 @@ namespace ForestTile
         private Tilemap _tilemapProps;
 
         //Sprites
-        private Enemy _enemy2;
+        private Enemy[] _enemy2 = new Enemy[5];
         private Player _player;
 
         // The position of the sprite
@@ -43,14 +43,17 @@ namespace ForestTile
         /// <param name="content">The content that is to be loaded fro monogame</param>
         public void LoadContent(ContentManager content)
         {
+
             _sky = content.Load<Texture2D>("Sky");
             _ground = content.Load<Texture2D>("BackGround");
             //_grass = content.Load<Texture2D>("");
-
             _tilemap = new Tilemap("map.txt");
             _tilemapProps = new Tilemap("overlay.txt");
 
-            _enemy2 = new Enemy(content.Load<Texture2D>("rat and bat spritesheet calciumtrice"), new Vector2(900, 450), 0);
+            for(int i = 0; i < 5;  i++)
+            {
+                _enemy2[i] = new Enemy(content.Load<Texture2D>("rat and bat spritesheet calciumtrice"), new Vector2(i * 200, 450), 0);
+            }
 
 
             _tilemap.LoadContent(content);
@@ -64,7 +67,11 @@ namespace ForestTile
         public void Update(GameTime gameTime, Player player)
         {
             _player = player;
-            _enemy2.Update(gameTime, _player);
+
+            for (int i = 0; i < 5; i++)
+            {
+                _enemy2[i].Update(gameTime, _player);
+            }
         }
 
         /// <summary>
@@ -108,7 +115,11 @@ namespace ForestTile
 
             player.Draw(gameTime, spriteBatch);
             enemy.Draw(gameTime, spriteBatch);
-            _enemy2.Draw(gameTime, spriteBatch);
+
+            for (int i = 0; i < 5; i++)
+            {
+                _enemy2[i].Draw(gameTime, spriteBatch);
+            }
 
             _tilemap.Draw(gameTime, spriteBatch);
             _tilemapProps.Draw(gameTime, spriteBatch);
