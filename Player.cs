@@ -99,13 +99,13 @@ namespace ForestTile
                 pressing = true;
             }
 
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            if ((keyboardState.IsKeyDown(Keys.Space ) || keyboardState.IsKeyDown(Keys.Space) ) && ( keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D) ))
             {
-                TextureMode = TextureMode.Attack;
-                pressing = true;
-            }else if (mouseState.LeftButton == ButtonState.Released)
+                _position.X += 1;
+            }
+            if ((keyboardState.IsKeyDown(Keys.Space) || keyboardState.IsKeyDown(Keys.Space)) && (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A)))
             {
-                TextureMode = TextureMode.Right;
+                _position.X -= 1;
             }
 
         }
