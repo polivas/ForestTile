@@ -1,0 +1,6 @@
+﻿
+
+
+"Content/BackGround.png" "Content/Sky.png" "Content/TileSet.png" "Content/Atlas_Props.png" created by aminowana of OpenGameArt.org (https://opengameart.org/content/free-pixel-art-pack) and released under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by/4.0/)
+"Content/rat and bat spritesheet calciumtrice.png" - created by Calciumtrice of OpenGameArt.org (https://opengameart.org/content/animated-wizard) and released under CC-BY 3.0(https://creativecommons.org/licenses/by/3.0/),
+"Content/wizard spritesheet calciumtrice.png" - created by Calciumtrice of OpenGameArt.org (https://opengameart.org/content/animated-wizard) and released under CC-BY 3.0(https://creativecommons.org/licenses/by/3.0/),

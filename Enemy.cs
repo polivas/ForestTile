@@ -29,7 +29,6 @@ namespace ForestTile
         Vector2 velocity;
 
         bool right;
-        bool flipped;
         float distance;
         float oldDistance;
         float playerDistance;
@@ -50,6 +49,12 @@ namespace ForestTile
         private short animationFrame = 0;
 
 
+        /// <summary>
+        /// The constructor for the enemy sprite
+        /// </summary>
+        /// <param name="newTexture">Texture of the enemy</param>
+        /// <param name="newPosition">The positon in which the emeny spawns</param>
+        /// <param name="newDistance">Distance from player</param>
         public Enemy(Texture2D newTexture, Vector2 newPosition, float newDistance)
         {
             texture = newTexture;
@@ -62,7 +67,7 @@ namespace ForestTile
         }
 
         /// <summary>
-        /// Loads the player texture atlas
+        /// Loads the enemy texture atlas
         /// </summary>
         /// <param name="content">The ContentManager to use to load the content</param>
         public void LoadContent(ContentManager content)
@@ -75,8 +80,6 @@ namespace ForestTile
             position += velocity;
 
             orgin = new Vector2(texture.Width / 2, texture.Height / 2);
-
-            //flipped = player.Flipped;
 
             if (distance <= 0)
             {
@@ -115,6 +118,11 @@ namespace ForestTile
             }
         }
 
+        /// <summary>
+        /// Draws enemy sprite
+        /// </summary>
+        /// <param name="gameTime">Total gametime</param>
+        /// <param name="spriteBatch">The given sprtite batch fron Content</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
 
@@ -131,17 +139,11 @@ namespace ForestTile
             if (animationTimer > 0.3) animationTimer -= 0.3;
 
             var source = new Rectangle(animationFrame * 32, (int)ActionMode * 32, 32, 32);
-            //SpriteEffects spriteEffects = (flipped) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             if (velocity.X > 0)
             {
                 spriteBatch.Draw(texture, position, source, Color.White, rotation, orgin, 1f, SpriteEffects.FlipHorizontally, 0f);
             }
-            /*else if(velocity.X == 0)
-            {
-               // source = new Rectangle(animationFrame * 32, 0 * 32, 32, 32);
-               // spriteBatch.Draw(texture, position, source, Color.White, 0f, new Vector2(32, 32), 1.5f, SpriteEffects.None, 0);
-            }*/
             else
             {
                 spriteBatch.Draw(texture, position, source, Color.White, rotation, orgin, 1f, SpriteEffects.None, 0f);

@@ -27,7 +27,7 @@ namespace ForestTile
         private Enemy _enemy2;
         private Player _player;
 
-        // The position of the sprite?
+        // The position of the sprite
         private Vector2 _position;
 
         /// <summary>
