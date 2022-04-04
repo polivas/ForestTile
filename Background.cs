@@ -50,7 +50,7 @@ namespace ForestTile
             _tilemap = new Tilemap("map.txt");
             _tilemapProps = new Tilemap("overlay.txt");
 
-            _enemy2 = new Enemy(content.Load<Texture2D>("rat and bat spritesheet calciumtrice"), new Vector2(800, 450), 0);
+            _enemy2 = new Enemy(content.Load<Texture2D>("rat and bat spritesheet calciumtrice"), new Vector2(900, 450), 0);
 
 
             _tilemap.LoadContent(content);
@@ -75,9 +75,6 @@ namespace ForestTile
         /// <param name="player">Player in the world</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Player player, Enemy enemy)
         {
-
-
-
             float playerX = MathHelper.Clamp(player.Position.X, 300, Constants.GAME_MAX_WIDTH);
             float offsetX = 300 - playerX;
 

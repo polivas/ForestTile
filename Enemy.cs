@@ -98,7 +98,7 @@ namespace ForestTile
             playerDistance = (player.Position.X - position.X);
             playerDistance += 150;
 
-            if (playerDistance >= -200 & playerDistance <= 200)
+            if (playerDistance >= -200 & playerDistance <= 200 )
             {
                 if (playerDistance < -1)
                 {
